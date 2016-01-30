@@ -1,11 +1,11 @@
-package com.onemorebit.readthis;
+package com.onemorebit.readthis.fragment;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +14,9 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import com.onemorebit.readthis.FullscreenActivity;
+import com.onemorebit.readthis.R;
+import timber.log.Timber;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,11 +62,9 @@ public class PortraitFragment extends Fragment {
             if (getActivity().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 word = savedInstanceState.getString("word");
                 tvShow.setText(word);
-                Log.d(TAG, "onActivityCreated: Land " + savedInstanceState.getString("word"));
             } else if (getActivity().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
                 word = savedInstanceState.getString("word");
                 etWord.setText(word);
-                Log.d(TAG, "onActivityCreated: Portrait");
             }
         }
     }
@@ -77,7 +78,7 @@ public class PortraitFragment extends Fragment {
         if (etWord != null) {
             etWord.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                 @Override public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                    if(actionId == EditorInfo.IME_ACTION_DONE){
+                    if (actionId == EditorInfo.IME_ACTION_DONE) {
                         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                         return true;
                     }
@@ -87,8 +88,9 @@ public class PortraitFragment extends Fragment {
 
             btnGo.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View v) {
-                    Log.d(TAG, "onClick: ");
-                    getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                    word = etWord.getText().toString();
+                    Timber.i("word :  %s", word);
+                    startActivity(new Intent(getActivity(), FullscreenActivity.class).putExtra("word", word));
                 }
             });
         } else {
@@ -107,7 +109,7 @@ public class PortraitFragment extends Fragment {
                 word = etWord.getText().toString();
             }
             outState.putString("word", word);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         super.onSaveInstanceState(outState);

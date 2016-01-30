@@ -4,6 +4,7 @@ import android.app.Application;
 import com.onemorebit.readthis.component.AppComponent;
 import com.onemorebit.readthis.component.DaggerAppComponent;
 import com.onemorebit.readthis.module.AppModule;
+import timber.log.Timber;
 
 /**
  * Created by Euro on 1/29/16 AD.
@@ -16,6 +17,14 @@ public class MyApp extends Application {
         super.onCreate();
 
         appComponent = DaggerAppComponent.builder().appModule(new AppModule(this)).build();
+
+        setupTimber();
+    }
+
+    private void setupTimber() {
+        if(BuildConfig.DEBUG){
+            Timber.plant(new Timber.DebugTree());
+        }
     }
 
     public AppComponent getAppComponent(){

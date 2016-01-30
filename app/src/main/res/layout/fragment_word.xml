@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:autofit="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0099cc"
+        tools:context="com.onemorebit.readthis.FullscreenActivity">
+
+        <me.grantland.widget.AutofitTextView
+            android:id="@+id/tvText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:keepScreenOn="true"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:textSize="120sp"
+            android:gravity="center"
+            autofit:minTextSize="80sp"
+            android:text="@string/dummy_content"/>
+
+    </FrameLayout>
+
+</layout>

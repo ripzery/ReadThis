@@ -35,6 +35,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/edit_text_background"
                 android:inputType="text"
+                android:layout_marginBottom="8dp"
                 android:ems="8"
                 android:maxLines="1"
                 android:hint="Enter words"

@@ -6,12 +6,10 @@ import android.content.res.Configuration;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Toast;
 import com.onemorebit.readthis.databinding.ActivityMainBinding;
+import com.onemorebit.readthis.fragment.PortraitFragment;
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initFragment() {
-        Log.d(TAG, "initFragment: ");
         if (getSupportFragmentManager().findFragmentByTag("PortraitFragment") == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, PortraitFragment.newInstance(), "PortraitFragment").commit();
         }
