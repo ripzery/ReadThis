@@ -24,8 +24,7 @@ public class WordFragment extends Fragment {
 
     @Override public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        word = getArguments().getString("word");
-        Timber.i("onCreate word = %s", word);
+        word = getArguments().getString("word").trim();
     }
 
     public static WordFragment newInstance(String word){

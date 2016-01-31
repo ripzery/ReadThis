@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
 
     </data>
@@ -13,7 +16,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/wallpaper3"
+            android:src="@drawable/wallpaper4"
             android:scaleType="centerCrop"/>
 
         <View
@@ -23,37 +26,89 @@
             android:background="#fff"/>
 
         <LinearLayout
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:padding="16dp"
-            android:gravity="center"
             android:layout_height="match_parent">
 
-            <EditText
-                android:id="@+id/etWord"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edit_text_background"
-                android:inputType="text"
-                android:layout_marginBottom="8dp"
-                android:ems="8"
-                android:maxLines="1"
-                android:hint="Enter words"
-                android:imeOptions="actionDone"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
 
-            <Button
-                android:id="@+id/btnGo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="Go"
-                android:layout_marginTop="16dp"
-                android:layout_gravity="bottom"
-                android:textSize="20sp"
-                android:textAllCaps="true"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="10"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp"
+                android:layout_height="match_parent">
+
+                <me.grantland.widget.AutofitTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:maxLines="1"
+                    android:text="Put Sentence Below"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    android:textColor="#fff"
+                    android:textSize="30sp"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1">
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/wallpaper4"
+                        android:scaleType="centerCrop"
+                        android:backgroundTint="@color/black_overlay"/>
+
+                    <EditText
+                        android:id="@+id/etWord"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textMultiLine"
+                        android:gravity="center"
+                        android:textColor="#fff"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColorHint="#fff"
+                        android:background="@android:color/transparent"
+                        android:layout_margin="16dp"
+                        android:textSize="30sp"
+                        android:maxLines="10"
+                        android:lines="10"
+                        android:layout_gravity="center"
+                        tools:text="dsadasdasdasdasdsaddsadasd"
+                        android:hint="Enter words"/>
+
+                </FrameLayout>
+
+
+
+                <Button
+                    android:id="@+id/btnGo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="show word"
+                    android:textColor="#fff"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginTop="16dp"
+                    android:textSize="20sp"
+                    android:textAllCaps="true"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
 
         </LinearLayout>
-
 
 
     </FrameLayout>
