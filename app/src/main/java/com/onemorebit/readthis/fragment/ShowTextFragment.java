@@ -9,16 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.onemorebit.readthis.R;
 import com.onemorebit.readthis.databinding.FragmentWordBinding;
-import timber.log.Timber;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class WordFragment extends Fragment {
+public class ShowTextFragment extends Fragment {
 
     String word;
 
-    public WordFragment() {
+    public ShowTextFragment() {
         // Required empty public constructor
     }
 
@@ -27,16 +26,16 @@ public class WordFragment extends Fragment {
         word = getArguments().getString("word").trim();
     }
 
-    public static WordFragment newInstance(String word){
+    public static ShowTextFragment newInstance(String word) {
         Bundle bundle = new Bundle();
         bundle.putString("word", word);
-        final WordFragment wordFragment = new WordFragment();
-        wordFragment.setArguments(bundle);
-        return wordFragment;
+        final ShowTextFragment showTextFragment = new ShowTextFragment();
+        showTextFragment.setArguments(bundle);
+        return showTextFragment;
     }
 
     @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        FragmentWordBinding view = DataBindingUtil.inflate(inflater, R.layout.fragment_word, container, false);
+        FragmentWordBinding view = DataBindingUtil.inflate(inflater, R.layout.fragment_show_text, container, false);
         view.tvText.setText(word);
         return view.getRoot();
     }

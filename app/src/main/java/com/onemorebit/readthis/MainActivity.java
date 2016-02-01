@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 import com.onemorebit.readthis.databinding.ActivityMainBinding;
-import com.onemorebit.readthis.fragment.PortraitFragment;
+import com.onemorebit.readthis.fragment.EnterTextFragment;
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initFragment() {
         if (getSupportFragmentManager().findFragmentByTag("PortraitFragment") == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, PortraitFragment.newInstance(), "PortraitFragment").commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, EnterTextFragment.newInstance(), "PortraitFragment").commit();
         }
     }
 

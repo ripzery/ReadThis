@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.onemorebit.readthis.MainActivity"
-        tools:layout="@layout/fragment_portrait">
+        tools:layout="@layout/fragment_enter_text">
 
     </FrameLayout>
 

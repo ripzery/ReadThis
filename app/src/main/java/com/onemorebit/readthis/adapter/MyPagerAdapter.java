@@ -3,7 +3,7 @@ package com.onemorebit.readthis.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import com.onemorebit.readthis.fragment.WordFragment;
+import com.onemorebit.readthis.fragment.ShowTextFragment;
 
 /**
  * Created by Euro on 1/30/16 AD.
@@ -24,6 +24,6 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
     }
 
     @Override public Fragment getItem(int position) {
-        return WordFragment.newInstance(splittedWord[position]);
+        return ShowTextFragment.newInstance(splittedWord[position]);
     }
 }

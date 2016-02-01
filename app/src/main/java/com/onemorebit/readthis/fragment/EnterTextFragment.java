@@ -14,20 +14,20 @@ import timber.log.Timber;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link PortraitFragment#newInstance} factory method to
+ * Use the {@link EnterTextFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PortraitFragment extends Fragment {
+public class EnterTextFragment extends Fragment {
 
     // TODO: Rename and change types of parameters
     String word = "";
 
-    public PortraitFragment() {
+    public EnterTextFragment() {
         // Required empty public constructor
     }
 
-    public static PortraitFragment newInstance() {
-        PortraitFragment fragment = new PortraitFragment();
+    public static EnterTextFragment newInstance() {
+        EnterTextFragment fragment = new EnterTextFragment();
         return fragment;
     }
 
@@ -36,7 +36,7 @@ public class PortraitFragment extends Fragment {
     }
 
     @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final FragmentPortraitBinding portraitBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_portrait, container, false);
+        final FragmentPortraitBinding portraitBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_enter_text, container, false);
 
         portraitBinding.etWord.setHorizontallyScrolling(false);
 
