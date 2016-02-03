@@ -1,0 +1,42 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/black_overlay"
+        android:layout_weight="1">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/ivImageTextBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:backgroundTint="@color/black_overlay"/>
+
+        <EditText
+            android:id="@+id/etWord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:fontFamily="sans-serif-medium"
+            android:textColorHint="#fff"
+            android:background="@android:color/transparent"
+            android:layout_margin="16dp"
+            android:textSize="30sp"
+            android:maxLines="3"
+            android:lines="3"
+            android:layout_gravity="center"
+            tools:text="dsadasdasdasdasdsaddsadasd"
+            android:hint="Enter words"/>
+
+    </FrameLayout>
+
+</layout>

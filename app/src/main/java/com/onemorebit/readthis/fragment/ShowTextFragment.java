@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.onemorebit.readthis.R;
-import com.onemorebit.readthis.databinding.FragmentWordBinding;
+import com.onemorebit.readthis.databinding.FragmentShowTextBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,7 +35,7 @@ public class ShowTextFragment extends Fragment {
     }
 
     @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        FragmentWordBinding view = DataBindingUtil.inflate(inflater, R.layout.fragment_show_text, container, false);
+        FragmentShowTextBinding view = DataBindingUtil.inflate(inflater, R.layout.fragment_show_text, container, false);
         view.tvText.setText(word);
         return view.getRoot();
     }
