@@ -39,11 +39,21 @@ public class EnterTextPagerAdapter extends SmartFragmentStatePagerAdapter {
 
     public void addModel(ImageTextModel imageTextModel){
         modelArrayList.add(imageTextModel);
+        Timber.i("===== Added Model ======");
+        for (int i = 0; i < modelArrayList.size(); i++) {
+            Timber.i(modelArrayList.get(i).toString());
+        }
+        Timber.i("===== Ended Model ======");
         notifyDataSetChanged();
     }
 
     public void removeModel(int position){
         modelArrayList.remove(position);
+        Timber.i("===== Removed Model ======");
+        for (int i = 0; i < modelArrayList.size(); i++) {
+            Timber.i(modelArrayList.get(i).toString());
+        }
+        Timber.i("===== Ended Model ======");
         notifyDataSetChanged();
     }
 

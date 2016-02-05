@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.onemorebit.readthis.R;
 import com.onemorebit.readthis.databinding.FragmentEnterTextSlideBinding;
 import com.onemorebit.readthis.model.ImageTextModel;
+import timber.log.Timber;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -52,22 +53,22 @@ public class EnterTextSlideFragment extends Fragment {
         // Inflate the layout for this fragment
         enterTextSlideBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_enter_text_slide, container, false);
 
-        enterTextSlideBinding.etWord.setText(imageTextModel.text);
-
-        if (imageTextModel.imageResUri != null) {
-            Glide.with(getContext()).load(imageTextModel.imageResUri).into(enterTextSlideBinding.ivImageTextBox);
-        }
+        Timber.i("position = " + position +  "OnCreateView : " + imageTextModel.toString() );
+        enterTextSlideBinding.etWord.setText("");
+        enterTextSlideBinding.setModel(imageTextModel);
 
         return enterTextSlideBinding.getRoot();
     }
 
     @Override public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+        imageTextModel.text = enterTextSlideBinding.etWord.getText().toString();
         outState.putParcelable("imageTextModel", imageTextModel);
     }
 
     public void resetImageTextModel() {
         imageTextModel = new ImageTextModel(null, "");
+        enterTextSlideBinding.etWord.setText("");
     }
 
     public void setImage(Uri imageResId) {
