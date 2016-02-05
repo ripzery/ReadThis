@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -24,101 +24,88 @@
             android:alpha="0.3"
             android:background="#fff"/>
 
-        <LinearLayout
-            android:orientation="horizontal"
+        <android.support.percent.PercentRelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"/>
+            <me.grantland.widget.AutofitTextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:maxLines="1"
+                android:text="Put Sentence Below"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:layout_centerHorizontal="true"
+                app:layout_widthPercent="90%"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:textColor="#fff"
+                android:textSize="30sp"/>
+
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvTitle"
+                android:layout_above="@+id/layoutButton"
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp"
+                android:layout_marginBottom="16dp">
+
+
+            </android.support.v4.view.ViewPager>
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_weight="10"
-                android:paddingBottom="16dp"
-                android:paddingTop="16dp"
-                android:layout_height="match_parent">
-
-                <me.grantland.widget.AutofitTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:maxLines="1"
-                    android:text="Put Sentence Below"
-                    android:textStyle="bold"
-                    android:textAllCaps="true"
-                    android:textColor="#fff"
-                    android:textSize="30sp"/>
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/black_overlay"
-                    android:layout_weight="1">
-
-                    <android.support.v7.widget.AppCompatImageView
-                        android:id="@+id/ivImageTextBox"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:scaleType="centerCrop"
-                        android:backgroundTint="@color/black_overlay"/>
-
-                    <EditText
-                        android:id="@+id/etWord"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:inputType="textMultiLine"
-                        android:gravity="center"
-                        android:textColor="#fff"
-                        android:fontFamily="sans-serif-medium"
-                        android:textColorHint="#fff"
-                        android:background="@android:color/transparent"
-                        android:layout_margin="16dp"
-                        android:textSize="30sp"
-                        android:maxLines="3"
-                        android:lines="3"
-                        android:layout_gravity="center"
-                        tools:text="dsadasdasdasdasdsaddsadasd"
-                        android:hint="Enter words"/>
-
-                </FrameLayout>
+                android:id="@+id/layoutButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/btnGo"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btnPickImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:text="Pick Image"
                     android:textColor="#fff"
                     android:background="@color/colorAccent"
-                    android:layout_marginTop="16dp"
-                    android:textSize="20sp"
                     android:textAllCaps="true"/>
 
                 <Button
-                    android:id="@+id/btnGo"
-                    android:layout_width="match_parent"
+                    android:id="@+id/btnAddPage"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:padding="16dp"
-                    android:text="show word"
+                    android:layout_marginLeft="16dp"
+                    android:text="Add Page"
                     android:textColor="#fff"
-                    android:background="@color/colorPrimary"
-                    android:layout_marginTop="16dp"
-                    android:textSize="20sp"
+                    android:background="@color/colorBlueGray"
                     android:textAllCaps="true"/>
 
             </LinearLayout>
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/btnGo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="show word"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="16dp"
+                android:textColor="#fff"
+                android:background="@color/colorPrimary"
+                android:textSize="20sp"
+                android:textAllCaps="true"/>
 
-        </LinearLayout>
+        </android.support.percent.PercentRelativeLayout>
 
 
     </FrameLayout>

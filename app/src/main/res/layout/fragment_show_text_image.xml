@@ -4,7 +4,9 @@
     xmlns:autofit="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="model"
+            type="com.onemorebit.readthis.model.ImageTextModel" />
     </data>
 
     <FrameLayout
@@ -12,6 +14,13 @@
         android:layout_height="match_parent"
         android:background="#0099cc"
         tools:context="com.onemorebit.readthis.FullscreenActivity">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/black_overlay"
+            android:src="@{ model.imageResUri }"
+            android:scaleType="centerCrop" />
 
         <me.grantland.widget.AutofitTextView
             android:id="@+id/tvText"
@@ -23,7 +32,7 @@
             android:textSize="120sp"
             android:gravity="center"
             autofit:minTextSize="80sp"
-            android:text="@string/dummy_content"/>
+            android:text="@{ model.text }"/>
 
     </FrameLayout>
 

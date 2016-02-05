@@ -2,14 +2,13 @@ package com.onemorebit.readthis;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
-import com.onemorebit.readthis.adapter.MyPagerAdapter;
+import com.onemorebit.readthis.adapter.ShowImageTextPagerAdapter;
 import com.onemorebit.readthis.databinding.ActivityFullscreenBinding;
+import com.onemorebit.readthis.model.ImageTextModel;
+import java.util.ArrayList;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -24,10 +23,11 @@ public class FullscreenActivity extends AppCompatActivity {
 
         fullscreenBinding = DataBindingUtil.setContentView(this, R.layout.activity_fullscreen);
 
-        word = getIntent().getStringExtra("word");
+        //word = getIntent().getStringExtra("word");
+        ArrayList<ImageTextModel> imageTextModelArrayList = getIntent().getParcelableArrayListExtra("imageTextModel");
 
         /* set up view pager */
-        MyPagerAdapter pagerAdapter = new MyPagerAdapter(getSupportFragmentManager(), word);
+        ShowImageTextPagerAdapter pagerAdapter = new ShowImageTextPagerAdapter(getSupportFragmentManager(), imageTextModelArrayList);
         fullscreenBinding.viewPager.setAdapter(pagerAdapter);
 
         toggleFullScreen();

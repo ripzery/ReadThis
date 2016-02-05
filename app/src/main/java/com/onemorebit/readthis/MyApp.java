@@ -1,9 +1,11 @@
 package com.onemorebit.readthis;
 
 import android.app.Application;
+import com.crashlytics.android.Crashlytics;
 import com.onemorebit.readthis.component.AppComponent;
 import com.onemorebit.readthis.component.DaggerAppComponent;
 import com.onemorebit.readthis.module.AppModule;
+import io.fabric.sdk.android.Fabric;
 import timber.log.Timber;
 
 /**
@@ -15,6 +17,7 @@ public class MyApp extends Application {
 
     @Override public void onCreate() {
         super.onCreate();
+        Fabric.with(this, new Crashlytics());
 
         appComponent = DaggerAppComponent.builder().appModule(new AppModule(this)).build();
 

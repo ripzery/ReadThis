@@ -28,6 +28,10 @@
             android:label="@string/title_activity_fullscreen"
             android:theme="@style/FullscreenTheme">
         </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="afecd6b52175568d2af1c42b69cd51e92dd7bff4" />
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
