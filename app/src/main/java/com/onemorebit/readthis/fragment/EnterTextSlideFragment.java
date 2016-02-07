@@ -47,17 +47,23 @@ public class EnterTextSlideFragment extends Fragment {
         }
 
         position = getArguments().getInt("position");
+
+        Timber.i("Position : " + position + ", ImageTextModel : " + imageTextModel.toString());
     }
 
     @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         enterTextSlideBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_enter_text_slide, container, false);
 
-        Timber.i("position = " + position +  "OnCreateView : " + imageTextModel.toString() );
-        enterTextSlideBinding.etWord.setText("");
-        enterTextSlideBinding.setModel(imageTextModel);
-
+        //enterTextSlideBinding.setModel(imageTextModel);
         return enterTextSlideBinding.getRoot();
+    }
+
+    @Override public void onResume() {
+        super.onResume();
+        Timber.i("OnResume " + enterTextSlideBinding.etWord.getText());
+        enterTextSlideBinding.setModel(imageTextModel);
+        enterTextSlideBinding.etWord.setText(imageTextModel.text);
     }
 
     @Override public void onSaveInstanceState(Bundle outState) {
@@ -71,12 +77,25 @@ public class EnterTextSlideFragment extends Fragment {
         enterTextSlideBinding.etWord.setText("");
     }
 
+    public void setPosition(int position){
+        this.position = position;
+    }
+
+    public void setText(String text){
+        enterTextSlideBinding.etWord.setText(text);
+    }
+
     public void setImage(Uri imageResId) {
+        imageTextModel.imageResUri = imageResId;
         Glide.with(this).load(imageResId).into(enterTextSlideBinding.ivImageTextBox);
     }
 
     public String getText() {
         return enterTextSlideBinding.etWord.getText().toString();
+    }
+
+    public ImageTextModel getModel(){
+        return imageTextModel;
     }
 
     public int getPosition() {

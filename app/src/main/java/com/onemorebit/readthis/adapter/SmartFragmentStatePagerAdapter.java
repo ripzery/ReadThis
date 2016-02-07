@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.util.SparseArray;
 import android.view.ViewGroup;
+import com.onemorebit.readthis.fragment.EnterTextSlideFragment;
 
 /*
    Extension of FragmentStatePagerAdapter which intelligently caches 
@@ -27,7 +28,11 @@ public abstract class SmartFragmentStatePagerAdapter extends FragmentStatePagerA
 		return fragment;
 	}
 
-	// Unregister when the item is inactive
+    @Override public void finishUpdate(ViewGroup container) {
+        super.finishUpdate(container);
+    }
+
+    // Unregister when the item is inactive
 	@Override
 	public void destroyItem(ViewGroup container, int position, Object object) {
         /* before remove update text in array */

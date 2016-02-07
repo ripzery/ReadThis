@@ -13,7 +13,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 import com.onemorebit.readthis.FullscreenActivity;
 import com.onemorebit.readthis.R;
 import com.onemorebit.readthis.adapter.EnterTextPagerAdapter;
@@ -70,7 +69,6 @@ public class EnterTextFragment extends Fragment {
                 for (int i = 0; i < adapter.getModelList().size(); i++) {
                     final EnterTextSlideFragment registeredFragment = (EnterTextSlideFragment) adapter.getRegisteredFragment(i);
                     if (registeredFragment != null) adapter.getModelList().get(i).text = registeredFragment.getText();
-                    Timber.i(registeredFragment.getText());
                 }
 
                 startActivity(new Intent(getActivity(), FullscreenActivity.class).putExtra("imageTextModel", adapter.getModelList()));
@@ -101,6 +99,10 @@ public class EnterTextFragment extends Fragment {
                 enterTextBinding.viewPager.setSwipeable(true);
 
                 enterTextBinding.viewPager.setCurrentItem(adapter.getCount(), true);
+
+                final EnterTextSlideFragment registeredFragment = (EnterTextSlideFragment) adapter.getRegisteredFragment(adapter.getCount() - 1);
+
+                registeredFragment.setText("");
             }
         });
 
