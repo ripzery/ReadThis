@@ -6,7 +6,6 @@ import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -86,47 +85,45 @@ public class EnterTextFragment extends Fragment {
         enterTextBinding.btnAddPage.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
 
-                /* create new model */
-                ImageTextModel model = new ImageTextModel(null, "");
-
-                /* add model to adapter */
-                adapter.addModel(model);
+                /* add new model to adapter */
+                adapter.addModel(new ImageTextModel(null, ""));
 
                 /* set visible whenever add fragment */
                 menuRemove.setVisible(true);
 
                 /* set swipable whenever add page */
-                enterTextBinding.viewPager.setSwipeable(true);
+                if (adapter.getCount() == 2) enterTextBinding.viewPager.setSwipeable(true);
 
                 enterTextBinding.viewPager.setCurrentItem(adapter.getCount(), true);
-
-                final EnterTextSlideFragment registeredFragment = (EnterTextSlideFragment) adapter.getRegisteredFragment(adapter.getCount() - 1);
-
-                registeredFragment.setText("");
             }
         });
 
-        enterTextBinding.viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override public void onPageSelected(int position) {
-                final EnterTextSlideFragment registeredFragment = (EnterTextSlideFragment) adapter.getRegisteredFragment(position);
-                if (registeredFragment != null) adapter.getModelList().get(position).text = registeredFragment.getText();
-            }
-
-            @Override public void onPageScrollStateChanged(int state) {
-
-            }
-        });
+        //enterTextBinding.viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        //    @Override public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        //
+        //    }
+        //
+        //    @Override public void onPageSelected(int position) {
+        //        /* get fragment on position*/
+        //        final EnterTextSlideFragment registeredFragment = (EnterTextSlideFragment) adapter.getRegisteredFragment(position);
+        //
+        //        /* backup current page data when scrolled to, for guarantee correct data */
+        //        //if (registeredFragment != null) adapter.getModelList().get(position).text = registeredFragment.getText();
+        //    }
+        //
+        //    @Override public void onPageScrollStateChanged(int state) {
+        //
+        //    }
+        //});
     }
 
     private void initInstance() {
+        /* initial 2 pages */
         ArrayList<ImageTextModel> modelArrayList = new ArrayList<>();
         modelArrayList.add(new ImageTextModel(null, ""));
         modelArrayList.add(new ImageTextModel(null, ""));
 
+        /* setup adapter */
         adapter = new EnterTextPagerAdapter(getChildFragmentManager(), modelArrayList);
 
         /* set adapter to viewpager */
@@ -175,6 +172,8 @@ public class EnterTextFragment extends Fragment {
 
     @Override public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.main_menu, menu);
+
+        /* initiate menu remove button */
         menuRemove = menu.findItem(R.id.actionRemove);
         super.onCreateOptionsMenu(menu, inflater);
     }

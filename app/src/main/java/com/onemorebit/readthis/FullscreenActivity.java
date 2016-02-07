@@ -8,6 +8,7 @@ import android.view.View;
 import com.onemorebit.readthis.adapter.ShowImageTextPagerAdapter;
 import com.onemorebit.readthis.databinding.ActivityFullscreenBinding;
 import com.onemorebit.readthis.model.ImageTextModel;
+import com.xgc1986.parallaxPagerTransformer.ParallaxPagerTransformer;
 import java.util.ArrayList;
 
 /**
@@ -28,7 +29,9 @@ public class FullscreenActivity extends AppCompatActivity {
 
         /* set up view pager */
         ShowImageTextPagerAdapter pagerAdapter = new ShowImageTextPagerAdapter(getSupportFragmentManager(), imageTextModelArrayList);
+        fullscreenBinding.viewPager.setPageTransformer(false, new ParallaxPagerTransformer(R.id.ivFullScreenImage));
         fullscreenBinding.viewPager.setAdapter(pagerAdapter);
+
 
         toggleFullScreen();
 
