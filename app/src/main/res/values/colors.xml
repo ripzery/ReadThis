@@ -4,7 +4,9 @@
     <color name="colorPrimaryDark">#00796B</color>
     <color name="colorPrimaryLight">#4DB6AC</color>
     <color name="colorBlueGray">#90A4AE</color>
-    <color name="colorAccent">#FFD740</color>
+    <color name="colorAccent">#795548</color>
+
+    <color name="colorTextPrimary">#795548</color>
 
     <!-- Defined ripple color set -->
     <color name="colorAccentRipple">#42448AFF</color>

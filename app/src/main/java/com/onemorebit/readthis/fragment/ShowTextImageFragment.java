@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import com.onemorebit.readthis.R;
 import com.onemorebit.readthis.databinding.FragmentShowTextImageBinding;
 import com.onemorebit.readthis.model.ImageTextModel;
+import timber.log.Timber;
 
 /**
  * A simple {@link Fragment} subclass.

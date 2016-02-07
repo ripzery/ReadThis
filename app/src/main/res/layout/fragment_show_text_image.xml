@@ -13,16 +13,18 @@
         android:id="@+id/rootView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#0099cc"
+        android:background="@color/colorPrimary"
         tools:context="com.onemorebit.readthis.FullscreenActivity">
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/ivFullScreenImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:backgroundTint="@color/black_overlay"
             android:src="@{ model.imageResUri }"
             android:scaleType="centerCrop" />
+
+        <include layout="@layout/view_mask_image"
+            bind:isVisible='@{ !model.text.equals("") }' />
 
         <me.grantland.widget.AutofitTextView
             android:id="@+id/tvText"
