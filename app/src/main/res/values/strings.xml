@@ -7,4 +7,8 @@
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="dialog_title">Choose action</string>
+    <string name="dialog_content">Choose clear to remove image and text, or choose delete to remove entire page</string>
+    <string name="clear">Clear</string>
+    <string name="delete">Delete</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.onemorebit.readthis.fragment;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
@@ -12,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import com.onemorebit.readthis.FullscreenActivity;
 import com.onemorebit.readthis.R;
 import com.onemorebit.readthis.adapter.EnterTextPagerAdapter;
@@ -98,23 +100,16 @@ public class EnterTextFragment extends Fragment {
             }
         });
 
-        //enterTextBinding.viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-        //    @Override public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        //
-        //    }
-        //
-        //    @Override public void onPageSelected(int position) {
-        //        /* get fragment on position*/
-        //        final EnterTextSlideFragment registeredFragment = (EnterTextSlideFragment) adapter.getRegisteredFragment(position);
-        //
-        //        /* backup current page data when scrolled to, for guarantee correct data */
-        //        //if (registeredFragment != null) adapter.getModelList().get(position).text = registeredFragment.getText();
-        //    }
-        //
-        //    @Override public void onPageScrollStateChanged(int state) {
-        //
-        //    }
-        //});
+        enterTextBinding.rootLayout.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                View view = getActivity().getCurrentFocus();
+                if (view != null) {
+                    InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                }
+            }
+        });
+
     }
 
     private void initInstance() {
